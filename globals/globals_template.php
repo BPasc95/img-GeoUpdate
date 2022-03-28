@@ -23,16 +23,12 @@ define ("DEVICE_51D_BACKUP_DIR", '');
 define ("MAXMIND_KEY",'');
 define ("MAXMIND_UID",'');
 
-define ("DB_HOST",'');
-define ("DB_USER",'');
-define ("DB_PASS",'');
-define ("DB_NAME",'');
 
-$database_config['default'] = array(
+define ('DATABASE_ROLES', array(
     'host' => '',
     'user' => '',
     'password' => '',
     'database' => ''
-);
+));
 
 include BASE_PATH . "globals/version.php";
