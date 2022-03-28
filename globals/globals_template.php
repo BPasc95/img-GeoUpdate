@@ -24,11 +24,25 @@ define ("MAXMIND_KEY",'');
 define ("MAXMIND_UID",'');
 
 
-define ('DATABASE_ROLES', array(
-    'host' => '',
-    'user' => '',
-    'password' => '',
-    'database' => ''
-));
+define ('DATABASE_ROLES',
+    array(
+        'default' => (
+            array(
+                'host' => '',
+                'user' => '',
+                'password' => '',
+                'database' => ''
+            )
+        ),
+        'read_only' => (
+            array(
+                'host' => '',
+                'user' => '',
+                'password' => '',
+                'database' => ''
+            )
+        )
+    )
+);
 
 include BASE_PATH . "globals/version.php";
