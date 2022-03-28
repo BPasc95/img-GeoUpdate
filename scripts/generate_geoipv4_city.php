@@ -50,7 +50,7 @@ $today_timestamp = date("Ymd-His");
 $line = "# GEOIP2v4 CITY CREATED $today - $today_timestamp \r\n\r\n";
 
 
-$line .= "192.168.0.2/32 $today|$today_timestamp|version" . SYSTEM_VERSION . "\r\n";
+$line .= "192.168.0.2/32 $today|$today_timestamp| version" . SYSTEM_VERSION . "\r\n";
 while ($row = $res->fetch_assoc()) {
     $line .= "" . $row['network_cidr'] . " " . $row['country_iso_code'] . "|" . $row['country_name'] . "|" . $row['continent_code'] . "|" . $row['continent_name'] . "|" . $row['subdivision_1_name'] . "|" . $row['subdivision_1_iso_code'] . "|" . $row['subdivision_2_name'] . "|" . $row['subdivision_2_iso_code'] . "|" . $row['city_name'] . "|" . $row['metro_code'] . "|" . $row['time_zone'] . "\r\n";
 	++$line_count;

@@ -73,7 +73,7 @@ $line_count = 0;
 $today = date("D M j G:i:s T Y");
 $today_timestamp = date("Ymd-His");
 $line = "# GEOIP2 ISP AND ORG CREATED $today \r\n\r\n";
-$line .= "192.168.0.3/32 CFS $today|$today_timestamp|version" . SYSTEM_VERSION . "\r\n";
+$line .= "192.168.0.3/32 CFS $today|$today_timestamp|version " . SYSTEM_VERSION . "\r\n";
 /* ENTER MANUAL LINES HERE */
 //$line .= "86.96.0.0/14 Emirates Hosting|Emirates Hosting\r\n";
 //$line .= "51.15.0.0/17 Dedibox SAS|Dedibox SAS\r\n";
