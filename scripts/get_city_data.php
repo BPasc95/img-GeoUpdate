@@ -1,23 +1,22 @@
 <?php
+// Todo: Change Procedural process to OOP
 require_once("../globals/globals.php");
-echo "I can see you";
-exit;
 ob_start();
 
-$file = 'GeoIP2-City-CSV.zip';
+$file = 'GeoIP2-City-CSV.zip'; // Local stored file name, temporary
 $path = BASE_PATH . "scripts/";
 $target_path = BASE_PATH;
-/*
+
+
+//CONNECT TO DATABASE
 $db = mysqli_connect(
 	DATABASE_ROLES['default']['host'],
 	DATABASE_ROLES['default']['user'],
 	DATABASE_ROLES['default']['password'],
 	DATABASE_ROLES['default']['database']
 );
-*/
 
-$db = mysqli_connect($db_location,$db_user,$db_pass,$db_database);
-
+//FUNCTION TO CLEAN UP FILES AFTER UNPACKING
 function rrmdir($dir) {
     if (is_dir($dir)) {
         $objects = scandir($dir);
@@ -31,15 +30,15 @@ function rrmdir($dir) {
     }
 }
 
-echo "Getting New Data File<br>";
+echo "Building City IPv4 and IPv6 data.  Version " . SYSTEM_VERSION . "<br>";
 
-@exec("wget -O $path$file 'http://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CSV.zip'");
+//Get Maxmind Data
+exec("wget -O $path$file 'https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City-CSV&license_key=" . MAXMIND_KEY . "&suffix=zip'");
 
-echo "Unzipping File<br>";
 
+//THIS WILL EXTACT FILES TO A NEW DIRECTORY scriptsGeoLite2-City-CSV_YYYYMMDD
 $zip = new ZipArchive;
 $res = $zip->open($file);
-
 if ($res === TRUE) {
     // extract it to the path we determined above
     $zip->extractTo($path);
@@ -48,8 +47,6 @@ if ($res === TRUE) {
 } else {
     exit("Error with file extraction");
 }
-echo "Removing Unpacked File<br>";
-unlink ("$path" . "/$file");
 
 //SCAN FOR DATA FOLDER
 $files = scandir ($path);
@@ -77,20 +74,6 @@ foreach ($files as &$test_value)
 		$file_blocks_country = "GeoLite2-City-Blocks-IPv6.csv";
 		$query = "LOAD DATA LOCAL INFILE '$path$test_value/$file_blocks_country' INTO TABLE blocks_city_ipv6 FIELDS TERMINATED BY ',' ENCLOSED BY '\"' IGNORE 1 LINES";
 		$result = mysqli_query($db, $query);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 		//TRUNCATE EXISTING DATA IN location_country
