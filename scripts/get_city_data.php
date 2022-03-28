@@ -1,10 +1,20 @@
 <?php
-require_once("/var/www/vhosts/pvt.inclickmanager.inmotiongroup.net/pvt.geoip.inmotiongroup.net/globals/globals.php");
-ob_start();
+require_once("../globals/globals.php");
+echo "I can see you";
 exit;
+ob_start();
+
 $file = 'GeoIP2-City-CSV.zip';
 $path = BASE_PATH . "scripts/";
 $target_path = BASE_PATH;
+/*
+$db = mysqli_connect(
+	DATABASE_ROLES['default']['host'],
+	DATABASE_ROLES['default']['user'],
+	DATABASE_ROLES['default']['password'],
+	DATABASE_ROLES['default']['database']
+);
+*/
 
 $db = mysqli_connect($db_location,$db_user,$db_pass,$db_database);
 
