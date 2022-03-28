@@ -3,6 +3,7 @@
  * VERSION 1.01
  *   Updated for v3 data structure (Including TZ)
  */
+// Todo: Change Procedural process to OOP
 ob_start();
 require_once("../globals/globals.php");
 $filename = GENERATED_FILES_DIR . "geoip_mm_region_city_combined_ipv4.txt";
