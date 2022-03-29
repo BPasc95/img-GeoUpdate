@@ -2,6 +2,7 @@
 
 LOCAL_HOSTNAME='pvt.geoip-v3.inmotiongroup.net'
 
+touch process-begin.txt
 
 echo "$LOCAL_HOSTNAME"
 #wget --timeout=300 -O /dev/null -o /dev/null "http://pvt.geoip.inmotiongroup.net/scripts/get_country_data.php" "http://pvt.geoip.inmotiongroup.net/scripts/get_city_data.php" "http://pvt.geoip.inmotiongroup.net/scripts/get_isp_data.php" "http://pvt.geoip.inmotiongroup.net/scripts/generate_geoipv4_country.php" "http://pvt.geoip.inmotiongroup.net/scripts/generate_geoipv4_city.php" "http://pvt.geoip.inmotiongroup.net/scripts/generate_geoipv4_isp_org.php" "http://pvt.geoip.inmotiongroup.net/scripts/generate_geoipv4_cfilter_webhosts.php" "http://pvt.geoip.inmotiongroup.net/scripts/generate_geoipv6_country.php" "http://pvt.geoip.inmotiongroup.net/scripts/generate_geoipv6_city.php" "http://pvt.geoip.inmotiongroup.net/scripts/generate_geoipv6_isp_org.php" "http://pvt.geoip.inmotiongroup.net/scripts/generate_geoipv6_cfilter_webhosts.php"
@@ -33,6 +34,7 @@ echo "done"
 
 #echo "Sending files to server(s)"
 echo "Sending Data to data.trafficvalidate.com ( and later inClick )"
-wget --no-check-certificate --timeout=300 -O /dev/null -o /dev/null "https://$LOCAL_HOSTNAME/push_files_to_server.php" --header "Host: $LOCAL_HOSTNAME"
+wget --no-check-certificate --timeout=300 -O /dev/null -o /dev/null "https://$LOCAL_HOSTNAME/scripts/push_files_to_server.php" --header "Host: $LOCAL_HOSTNAME"
 
+touch process-end.txt
 
