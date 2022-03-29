@@ -50,7 +50,7 @@ if ($res === TRUE) {
 
 //SCAN FOR DATA FOLDER
 $files = scandir ($path);
-
+unlink ("$path" . "/$file");
 
 foreach ($files as &$test_value)
 {

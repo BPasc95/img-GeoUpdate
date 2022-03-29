@@ -37,7 +37,7 @@ rename ($temp_path.$file, $path_backup.$file.'-'.$file_datestamp);
 
 $uncompressed_filesize = filesize($target_path.$target_filename);
 
-echo "Uncompressed Filesize: " . $filesize . "<br>";
+echo "Uncompressed Filesize: " . $uncompressed_filesize . "<br>";
 /*
 $zip = new ZipArchive;
 $res = $zip->open($temp_path.$file);

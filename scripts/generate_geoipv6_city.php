@@ -5,7 +5,7 @@
 // Todo: Change Procedural process to OOP
 ob_start();
 require_once("../globals/globals.php");
-$filename = BASE_PATH . "/generated/geoip_mm_region_city_combined_ipv6.txt";
+$filename = GENERATED_FILES_DIR . "geoip_mm_region_city_combined_ipv6.txt";
 
 //CONNECT TO DATABASE
 $mysqli = mysqli_connect(
